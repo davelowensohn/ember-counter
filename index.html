@@ -1,7 +1,6 @@
 <html>
 <head>
 	<title>Ember Counter</title>
-	<script type="text/javascript" src="script.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css"> 
 </head>
 <body>
@@ -9,13 +8,34 @@
 	<script type="text/x-handlebars" data-template-name="counters">
 
 		<section id="header">
-			<h1>(header)</h1>
+			<h1>(My) Master Trix</h1>
 		</section>
 		<section id="counter">
+
 			<label for="qty"><abbr title="Quantity">Counter Title</abbr></label>
 			<input id="qty" value="0" />
 			<button id="down" onclick="modify_qty(-1)">-1</button>
 			<button id="up" onclick="modify_qty(1)">+1</button>
+
+			<br />
+
+			{{input type="text" id="new-counter" placeholder="What u counting?" 
+              value=newTitle action="createCounter"}}
+
+			<br />
+
+			<ul id="counter-list">
+				{{#each}}
+				<li {{bind-attr class="isGood:good"}}>
+			<label>{{title}}</label>
+			<input id="qty-{{title}}" value="0" />
+			<button id="down" onclick="modify_qty(-1)">-1</button>
+			<button id="up" onclick="modify_qty(1)">+1</button>
+				</li>
+				{{/each}}
+			</ul>
+
+
 		</section>
 		<section id="header">
 			<p>(add counter)</p>
@@ -29,6 +49,9 @@
 	<script src="js/libs/ember-data.js"></script>
 	<script src="js/application.js"></script>
 	<script src="js/router.js"></script>
-	<script src="js/counter.js"></script>
+	<script src="js/models/counter.js"></script>
+	<script src="js/controllers/counters_controller.js"></script>
+	<script src="js/script.js"></script>
+
 </body>
 </html>
