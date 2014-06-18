@@ -5,17 +5,30 @@
 	<link rel="stylesheet" type="text/css" href="style.css"> 
 </head>
 <body>
-	<div class="header">
-		<h1>(header)</h1>
-	</div>
-	<div class="counter">
-		<label for="qty"><abbr title="Quantity">Quantity</abbr></label>
-		<input id="qty" value="0" />
-		<button id="down" onclick="modify_qty(-1)">-1</button>
-		<button id="up" onclick="modify_qty(1)">+1</button>
-	</div>
-	<div class="header">
-		<p>(add counter)</p>
-	</div>
+
+	<script type="text/x-handlebars" data-template-name="counters">
+
+		<section id="header">
+			<h1>(header)</h1>
+		</section>
+		<section id="counter">
+			<label for="qty"><abbr title="Quantity">Counter Title</abbr></label>
+			<input id="qty" value="0" />
+			<button id="down" onclick="modify_qty(-1)">-1</button>
+			<button id="up" onclick="modify_qty(1)">+1</button>
+		</section>
+		<section id="header">
+			<p>(add counter)</p>
+		</section>
+
+	</script>
+
+	<script src="js/libs/jquery-1.10.2.min.js"></script>
+	<script src="js/libs/handlebars-1.0.0.js"></script>
+	<script src="js/libs/ember.js"></script>
+	<script src="js/libs/ember-data.js"></script>
+	<script src="js/application.js"></script>
+	<script src="js/router.js"></script>
+	<script src="js/counter.js"></script>
 </body>
 </html>
